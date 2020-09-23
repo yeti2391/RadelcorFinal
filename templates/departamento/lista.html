@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+  Lista departamentos
+{% endblock title %}
+
+{% block content %}
+  {% include "core/header.html" %}
+
+  <div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell text-dark">Lista de Áreas</h1>
+        <form class="cell grid-x grid-margin-x" method="GET">{% csrf_token %}
+            <div class="cell large-7">
+                <input type="text" id="kword" name="kword" placeholder="buscar área">
+            </div>
+            <div class="cell large-2">
+                <button type="submit" class="success button">Buscar</button>
+            </div>
+        </form>
+
+
+        <div class="cell table-responsive">
+            <table class="table table-hover">
+                <thead>
+                  <th>Área</th>
+                  <th></th>
+                </thead>
+                <tbody>
+                    {% for d in departamentos %}
+                    <tr>
+                        <td>{{ d.name }}</td>
+
+                        <td>
+                            <a class="button warning" href="#">Ver Empleados</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+
+{% include 'core/footer.html' %}
+
+{% endblock content %}
