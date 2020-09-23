@@ -13,7 +13,6 @@ class ListAllEmpleado(ListView):
     ordering = 'last_name'
     paginate_by = 4
     def get_queryset(self):
-        # el codigo que yo queira
         palabra_clave = self.request.GET.get("kword", '')
         lista = Empleado.objects.filter(
             last_name__icontains=palabra_clave
