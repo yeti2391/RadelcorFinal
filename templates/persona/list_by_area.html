@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+  lista empelados por departamento
+{% endblock title %}
+
+{% block content %}
+  {% include "core/header.html" %}
+
+  <div class="grid-container">
+      <div class="grid-x">
+        <div class="cell text-dark"><h1>Empelados:</h1></div>
+        <form class="cell grid-x grid-margin-x" method="GET">{% csrf_token %}
+            <div class="cell large-7">
+                <input type="text" id="kword" name="kword" placeholder="buscar empleado por apellido">
+            </div>
+            <div class="cell large-2">
+                <button type="submit" class="success button">Buscar</button>
+            </div>
+        </form>
+
+
+
+
+        <div class="cell table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                      <th scope="col">Cedula</th>
+                      <th scope="col">Nombres</th>
+                      <th scope="col">Apellidos</th>
+                      <th scope="col">Área</th>
+                      <th scope="col">Ficha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for e in empleados %}
+                    <tr>
+                        <th scope='row'>{{ e.cedula }}</th>
+                        <td colspan="">{{ e.first_name }}</td>
+                        <td colspan="">{{ e.last_name }}</td>
+                        <td colspan="">{{ e.departamento }}</td>
+                        <td colspan=""><a class="button warning" href="{% url 'persona_app:empleado_detail' e.id %}">Ver</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+      </div>
+  </div>
+
+{% include 'core/footer.html' %}
+
+{% endblock content %}

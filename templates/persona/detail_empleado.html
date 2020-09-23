@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}
+  {{ object.full_name }}
+{% endblock title %}
+
+{% block content %}
+
+{% include "core/header.html" %}
+
+
+
+<div class="container">
+  <ul class="list-group list-group-flush text-center">
+    <li class="list-group-item bg-light ">{% if empleado.avatar %}
+      <img class="img-fluid mx-auto img-thumbnail" alt="Responsive image" src="{{ empleado.avatar.url }}" width:"100%">
+    {% else %}
+      <img class="img-fluid mx-auto img-thumbnail" alt="Responsive image" src="{% static 'img/20.jpg' %}" width:"100%">
+    {% endif %}</li>
+    <li class="list-group-item"><strong class="text-primary">Nombre:</strong> {{ empleado.first_name }} {{ empleado.last_name }}</li>
+    <li class="list-group-item"><strong class="text-primary">Documento:</strong> {{ empleado.cedula }}</li>
+    <li class="list-group-item"><strong class="text-primary">Email:</strong> {{ empleado.email }}</li>
+    <li class="list-group-item"><strong class="text-primary">Numero de contacto:</strong> {{ empleado.numero  }}</li>
+    <li class="list-group-item"><strong class="text-primary">Ingreso:</strong> {{ empleado.fecha_creacion|date:"SHORT_DATE_FORMAT" }}</li>
+  </ul>
+</div>
+
+
+{% include 'core/footer.html' %}
+{% endblock content %}
