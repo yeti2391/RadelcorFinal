@@ -32,7 +32,8 @@
                         <td>{{ d.name }}</td>
 
                         <td>
-                            <a class="button warning" href="{% url 'persona_app:emplados_area' %}">Ver Empleados</a>
+                          <!-- la siguiente linea debe ser cmbiada para empleados_by_area -->
+                            <a class="button warning" href="{% url 'persona_app:emplados_total' %}">Ver Empleados</a>
                         </td>
                     </tr>
                     {% endfor %}

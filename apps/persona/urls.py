@@ -13,8 +13,8 @@ urlpatterns = [
         name='empleado_detail'
     ),
     path(
-        'list-by-area/',
-        views.ListByAreaEmpleado.as_view(),
-        name='emplados_area'
+        'list-all/',
+        views.ListAllEmpleado.as_view(),
+        name='emplados_total'
     ),
 ]

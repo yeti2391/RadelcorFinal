@@ -6,9 +6,9 @@ from .models import Empleado
 # Create your views here.
 
 
-class ListByAreaEmpleado(ListView):
+class ListAllEmpleado(ListView):
     """ lista empleados TOTAL """
-    template_name = 'persona/list_by_area.html'
+    template_name = 'persona/list_all.html'
     context_object_name = 'empleados'
     ordering = 'last_name'
     paginate_by = 4
@@ -28,6 +28,4 @@ class EmpleadoDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(EmpleadoDetailView, self).get_context_data(**kwargs)
-        #toot un proceso
-        context['titulo'] = 'Empleado del mes'
         return context
