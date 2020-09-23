@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}
+  {{ object.id }}
+{% endblock title %}
+
+{% block content %}
+
+{% include "core/header.html" %}
+
+
+<div class="container">
+  <ul class="list-group list-group-flush text-center">
+    <li class="list-group-item text-primary text-light bg-secondary"><strong>Nº Novedad:</strong></li>
+    <li class="list-group-item bg-light ">{{ novedades.id }}</li>
+    <li class="list-group-item text-primary"><strong>Titulo:</strong></li>
+    <li class="list-group-item bg-light">{{ novedades.titulo }}</li>
+    <li class="list-group-item text-primary"><strong>Funcionario:</strong></li>
+    <li class="list-group-item bg-light">{{ novedades.autor }}</li>
+    <li class="list-group-item text-primary"><strong>Fecha:</strong></li>
+    <li class="list-group-item bg-light">{{ novedades.fecha_creacion|date:"SHORT_DATE_FORMAT" }}</li>
+    <li class="list-group-item text-primary"><strong>Contenido:</strong></li>
+    <li class="list-group-item bg-light">{{ novedades.contenido }}</li>
+
+  </ul>
+</div>
+
+
+{% include 'core/footer.html' %}
+<!-- pos.published|date:"short_date_format" -->
+{% endblock content %}

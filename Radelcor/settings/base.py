@@ -25,11 +25,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # local apps
+    'ckeditor',
+    'ckeditor_uploader',
     'apps.core',
     'apps.departamento',
     'apps.persona',
     'apps.novedades',
 ]
+
+#### Hay que indicar la ruta para que ckeditor suba archivos
+CKEDITOR_UPLOAD_PATH = 'ck-uploads/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
