@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import reverse, reverse_lazy
 from django.views.generic import (ListView, DetailView)
 
 from .models import Empleado
@@ -28,3 +29,16 @@ class EmpleadoDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(EmpleadoDetailView, self).get_context_data(**kwargs)
         return context
+
+
+
+class ListByAreaEmpleado(ListView):
+    template_name = 'persona/list_by_area'
+    context_object_name = 'empleados'
+
+    def get_queryset(self):
+        area = self.kwargs['shorname']
+        lista = Empleado.objects.filter(
+            departamento__shor_name=area
+        )
+        return lista

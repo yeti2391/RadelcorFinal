@@ -8,7 +8,6 @@ from apps.departamento.models import Departamento
 # Create your models here.
 class Empleado(models.Model):
     """ Modelo para tabla empleado """
-    id = models.AutoField(primary_key = True)
     cedula = models.IntegerField('Cedula', blank=False, null=False, unique=True)
     first_name = models.CharField('Nombres', max_length=60)
     last_name = models.CharField('apellidos', max_length=60)

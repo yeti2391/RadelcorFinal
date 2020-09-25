@@ -10,4 +10,5 @@ urlpatterns = [
         'departamento-lista/',
         views.DepartamentoListView.as_view(),
         name='departamento_list'),
+
 ]

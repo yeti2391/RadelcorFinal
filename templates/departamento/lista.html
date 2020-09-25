@@ -30,10 +30,11 @@
                     {% for d in departamentos %}
                     <tr>
                         <td>{{ d.name }}</td>
-
+                        <!-- se agrega tmb el shorname por aca -->
+                        <td>{{ departamento.shor_name }}</td>
                         <td>
-                          <!-- la siguiente linea debe ser cmbiada para empleados_by_area -->
-                            <a class="button warning" href="{% url 'persona_app:emplados_total' %}">Ver Empleados</a>
+                          <!-- la siguiente linea se modifica para filtrar por empleados_by_area -->
+                            <a class="button warning" href="{% url 'persona_app:empleados_area' departamento.shor_name %}">Ver Empleados</a>
                         </td>
                     </tr>
                     {% endfor %}

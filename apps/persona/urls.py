@@ -15,6 +15,13 @@ urlpatterns = [
     path(
         'list-all/',
         views.ListAllEmpleado.as_view(),
-        name='emplados_total'
+        name='empleados_total'
     ),
+    #SE AGREGA EL SIGUIENTE PATH PARA EL FILTRO POR AREA
+    path(
+        'list_by_area/<shorname>/',
+        views.ListByAreaEmpleado.as_view(),
+        name = 'empleados_area'
+    ),
+
 ]
